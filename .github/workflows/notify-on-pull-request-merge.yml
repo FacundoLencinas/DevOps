@@ -1,0 +1,15 @@
+on:
+  pull_request:
+    types: [closed]
+    
+jobs:
+  notify-on-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Slack notification
+        uses: rtCamp/action-slack-notify@v2.1.0
+        with:
+          status: ${{ job.status }}
+          fields: repo,head_branch,base_branch,pull_request_number,pull_request_author
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
