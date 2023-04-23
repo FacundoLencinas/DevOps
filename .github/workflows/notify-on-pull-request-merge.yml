@@ -12,4 +12,4 @@ jobs:
           status: ${{ job.status }}
           fields: repo,head_branch,base_branch,pull_request_number,pull_request_author
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
